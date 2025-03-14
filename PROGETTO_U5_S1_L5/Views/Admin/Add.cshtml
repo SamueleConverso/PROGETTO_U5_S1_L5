@@ -1,0 +1,40 @@
+﻿@model AddAnagraficaViewModel
+
+@{
+	ViewData["Title"] = "Aggiungi trasgressore";
+}
+
+<form method="post" asp-controller="Admin" asp-action="CreateNewAnagrafica">
+	<div class="form-group">
+
+		<label asp-for="Nome" class="form-label"></label>
+		<span asp-validation-for="Nome" class="text-danger"></span>
+		<input type="text" class="form-control" asp-for="Nome" />
+
+		<label asp-for="Cognome" class="form-label"></label>
+		<span asp-validation-for="Cognome" class="text-danger"></span>
+		<input type="text" class="form-control" asp-for="Cognome" />
+
+		<label asp-for="Indirizzo" class="form-label"></label>
+		<span asp-validation-for="Indirizzo" class="text-danger"></span>
+		<input type="text" class="form-control" asp-for="Indirizzo" />
+
+		<label asp-for="Citta" class="form-label"></label>
+		<span asp-validation-for="Citta" class="text-danger"></span>
+		<input type="text" class="form-control" asp-for="Citta" />
+
+		<label asp-for="Cap" class="form-label"></label>
+		<span asp-validation-for="Cap" class="text-danger"></span>
+		<input type="number" class="form-control" asp-for="Cap" />
+
+		<label asp-for="CodFisc" class="form-label"></label>
+		<span asp-validation-for="CodFisc" class="text-danger"></span>
+		<input type="text" class="form-control" asp-for="CodFisc" />
+
+	</div>
+	<button type="submit" class="btn btn-primary">Aggiungi</button>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

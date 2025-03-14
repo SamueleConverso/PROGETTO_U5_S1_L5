@@ -1,0 +1,33 @@
+﻿@model VerbaleViolazioneViewModel
+
+@{
+	ViewData["Title"] = "Violazioni";
+	var idVerbale = ViewData["IdVerbale"];
+}
+
+<a asp-controller="Verbale" asp-action="AddViolazione" asp-route-idVerbale="@idVerbale">Aggiungi violazione</a>
+
+@if (Model.VerbaliViolazioni != null && Model.VerbaliViolazioni.Any())
+{
+	<div class="container d-flex justify-content-center">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Descrizione</th>
+					
+			
+				</tr>
+			</thead>
+			@foreach (var violazione in Model.VerbaliViolazioni)
+			{
+				<tr>
+					<td>@violazione.IdviolazioneNavigation.Descrizione</td>		
+				</tr>
+			}
+		</table>
+	</div>
+}
+else
+{
+	<p class="text-danger">Nessuna violazione trovata!</p>
+}

@@ -1,0 +1,21 @@
+﻿@model ViolazioneViewModel
+
+@{
+	ViewData["Title"] = "Aggiungi violazione";
+	var idVerbale = ViewData["IdVerbale"];
+}
+
+<form cclass="d-flex" method="post" asp-controller="Verbale" asp-action="ApplyViolazione" asp-route-idVerbale="@idVerbale">
+	<div class="form-group">
+		<select type="text" class="form-control" asp-for="IdViolazione">
+			@foreach (var violazione in Model.Violazioni) { 
+			<option value="@violazione.Idviolazione">@violazione.Descrizione</option>
+			}
+		</select>
+	</div>
+	<button type="submit" class="btn btn-primary">Aggiungi</button>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

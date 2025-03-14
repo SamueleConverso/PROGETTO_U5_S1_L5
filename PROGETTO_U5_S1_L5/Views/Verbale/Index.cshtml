@@ -1,0 +1,41 @@
+﻿@model VerbaleViewModel
+
+@{
+	ViewData["Title"] = "Verbali";
+}
+
+@if (Model.Verbali != null && Model.Verbali.Any())
+{
+	<div class="container d-flex justify-content-center">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Data violazione</th>
+					<th>Indirizzo violazione</th>
+					<th>Nominativo agente</th>
+					<th>Data trascrizione verbale</th>
+					<th>Importo</th>
+					<th>Decurtamento punti</th>
+					<th>Violazioni</th>
+				</tr>
+			</thead>
+			@foreach (var verbale in Model.Verbali)
+			{
+				<tr>
+					<td>@verbale.DataViolazione</td>
+					<td>@verbale.IndirizzoViolazione</td>
+					<td>@verbale.NominativoAgente</td>
+					<td>@verbale.DataTrascrizioneVerbale</td>
+					<td>@verbale.Importo</td>
+					<td>@verbale.DecurtamentoPunti</td>
+					<th><a asp-controller="Verbale" asp-action="Violazioni" asp-route-idVerbale="@verbale.Idverbale">Dettagli violazioni</a></th>
+				</tr>
+			}
+		</table>
+	</div>
+}
+else
+{
+	<p class="text-danger">Nessun verbale trovato!</p>
+}
+

@@ -1,0 +1,49 @@
+﻿@model AddVerbaleViewModel
+
+@{
+	ViewData["Title"] = "Aggiungi verbale";
+	var anagrafiche = ViewBag.Anagrafiche as AnagraficaViewModel;
+}
+
+<form method="post" asp-controller="Verbale" asp-action="CreateNewVerbale">
+	<div class="form-group">
+
+		<label asp-for="DataViolazione" class="form-label"></label>
+		<span asp-validation-for="DataViolazione" class="text-danger"></span>
+		<input type="date" class="form-control" asp-for="DataViolazione" />
+
+		<label asp-for="IndirizzoViolazione" class="form-label"></label>
+		<span asp-validation-for="IndirizzoViolazione" class="text-danger"></span>
+		<input type="text" class="form-control" asp-for="IndirizzoViolazione" />
+
+		<label asp-for="NominativoAgente" class="form-label"></label>
+		<span asp-validation-for="NominativoAgente" class="text-danger"></span>
+		<input type="text" class="form-control" asp-for="NominativoAgente" />
+
+		<label asp-for="DataTrascrizioneVerbale" class="form-label"></label>
+		<span asp-validation-for="DataTrascrizioneVerbale" class="text-danger"></span>
+		<input type="date" class="form-control" asp-for="DataTrascrizioneVerbale" />
+
+		<label asp-for="Importo" class="form-label"></label>
+		<span asp-validation-for="Importo" class="text-danger"></span>
+		<input type="number" class="form-control" asp-for="Importo" />
+
+		<label asp-for="DecurtamentoPunti" class="form-label"></label>
+		<span asp-validation-for="DecurtamentoPunti" class="text-danger"></span>
+		<input type="number" class="form-control" asp-for="DecurtamentoPunti" />
+
+		<select asp-for="Idanagrafica">
+			@foreach (var anagrafica in anagrafiche.Anagrafiche)
+			{
+				<option value="@anagrafica.Idanagrafica">@anagrafica.Nome @anagrafica.Cognome</option>
+			}
+			
+		</select>
+
+	</div>
+	<button type="submit" class="btn btn-primary">Aggiungi</button>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

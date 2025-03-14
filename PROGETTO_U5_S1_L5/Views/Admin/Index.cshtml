@@ -1,0 +1,38 @@
+﻿@model AnagraficaViewModel
+
+@{
+	ViewData["Title"] = "Lista trasgressori";
+}
+
+@if (Model.Anagrafiche != null && Model.Anagrafiche.Any()) {
+	<div class="container d-flex justify-content-center">
+	<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Indirizzo</th>
+					<th>Città</th>
+					<th>Cap</th>
+					<th>CF</th>
+				</tr>
+			</thead>
+			@foreach (var anagrafica in Model.Anagrafiche)
+			{
+				<tr>
+					<td>@anagrafica.Nome</td>
+					<td>@anagrafica.Cognome</td>
+					<td>@anagrafica.Indirizzo</td>
+					<td>@anagrafica.Citta</td>
+					<td>@anagrafica.Cap</td>
+					<td>@anagrafica.CodFisc</td>
+				</tr>
+			}
+	</table>
+	</div>
+}
+else
+{
+	<p class="text-danger">Nessuna anagrafica trovata</p>
+}
+
