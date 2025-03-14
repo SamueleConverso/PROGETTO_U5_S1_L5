@@ -1,0 +1,36 @@
+﻿@model SuperDieciPuntiViewModel
+
+@{
+	ViewData["Title"] = "Oltre dieci punti";
+}
+
+@if (Model.SuperDieciPunti != null && Model.SuperDieciPunti.Any())
+{
+	<div class="container d-flex justify-content-center">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Data violazione</th>
+					<th>Decurtamento punti</th>
+					<th>Importo</th>
+				</tr>
+			</thead>
+			@foreach (var element in Model.SuperDieciPunti)
+			{
+				<tr>
+					<td>@element.Nome</td>
+					<td>@element.Cognome</td>
+					<td>@element.DataViolazione</td>
+					<td>@element.DecurtamentoPunti</td>
+					<td>@element.Importo</td>
+				</tr>
+			}
+		</table>
+	</div>
+}
+else
+{
+	<p class="text-danger">La tabella è vuota.</p>
+}

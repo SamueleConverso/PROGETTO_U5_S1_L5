@@ -1,0 +1,38 @@
+﻿@model VerbaliCostosiViewModel
+
+@{
+	ViewData["Title"] = "Verbali oltre 400 euro";
+}
+
+@if (Model.VerbaliCostosi != null && Model.VerbaliCostosi.Any())
+{
+	<div class="container d-flex justify-content-center">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Data violazione</th>
+					<th>Indirizzo violazione</th>
+					<th>Nominativo agente</th>
+					<th>Data trascrione verbale</th>
+					<th>Importo</th>
+					<th>Decurtamento punti</th>
+				</tr>
+			</thead>
+			@foreach (var element in Model.VerbaliCostosi)
+			{
+				<tr>
+					<td>@element.DataViolazione</td>
+					<td>@element.IndirizzoViolazione</td>
+					<td>@element.NominativoAgente</td>
+					<td>@element.DataTrascrizioneVerbale</td>
+					<td>@element.Importo</td>
+					<td>@element.DecurtamentoPunti</td>
+				</tr>
+			}
+		</table>
+	</div>
+}
+else
+{
+	<p class="text-danger">La tabella è vuota.</p>
+}

@@ -1,10 +1,10 @@
-﻿@model TotVerbaliViewModel
+﻿@model TotPuntiDecurtatiViewModel
 
 @{
-	ViewData["Title"] = "Totale verbali";
+	ViewData["Title"] = "Totale punti decurtati";
 }
 
-@if (Model.TotVerbali != null && Model.TotVerbali.Any())
+@if (Model.TotPuntiDecurtati != null && Model.TotPuntiDecurtati.Any())
 {
 	<div class="container d-flex justify-content-center">
 		<table class="table">
@@ -12,15 +12,15 @@
 				<tr>
 					<th>Nome</th>
 					<th>Cognome</th>
-					<th>Totale verbali</th>
+					<th>Totale punti decurtati</th>
 				</tr>
 			</thead>
-			@foreach (var element in Model.TotVerbali)
+			@foreach (var element in Model.TotPuntiDecurtati)
 			{
 				<tr>
 					<td>@element.Nome</td>
 					<td>@element.Cognome</td>
-					<td>@element.NumeroVerbali</td>
+					<td>@element.NumeroPuntiDecurtati</td>
 				</tr>
 			}
 		</table>

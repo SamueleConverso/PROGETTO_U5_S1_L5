@@ -2,6 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1 class="display-4">Welcome</h1>
+<h1 class="display-4 text-center">Welcome</h1>
    
-<a class="btn btn-primary" asp-controller="Home" asp-action="TotVerbali">Query totale verbali</a>
+
+<div class="container d-flex flex-column justify-content-center gap-3">
+<a class="btn btn-primary" asp-controller="Home" asp-action="TotVerbali">Totale verbali per trasgressore</a>
+<a class="btn btn-primary" asp-controller="Home" asp-action="TotPuntiDecurtati">Totale punti decurtati per trasgressore</a>
+<a class="btn btn-primary" asp-controller="Home" asp-action="SuperDieciPunti">Verbali oltre 10 punti decurtati</a>
+<a class="btn btn-primary" asp-controller="Home" asp-action="VerbaliCostosi">Verbali oltre 400 euro di importo</a>
+</div>

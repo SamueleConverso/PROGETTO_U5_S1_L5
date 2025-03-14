@@ -29,12 +29,24 @@ namespace PROGETTO_U5_S1_L5.Controllers {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult TotVerbali() {
-            return View();
+        public async Task<IActionResult> TotVerbali() {
+            var totVerbali = await _adminService.GetTotVerbaliAsync();
+            return View(totVerbali);
         }
 
-        public async Task<IActionResult> CalcTotVerbali() {
-            return View();
+        public async Task<IActionResult> TotPuntiDecurtati() {
+            var totPuntiDecurtati = await _adminService.GetTotPuntiDecurtatiAsync();
+            return View(totPuntiDecurtati);
+        }
+
+        public async Task<IActionResult> SuperDieciPunti() {
+            var superDieciPunti = await _adminService.GetSuperDieciPuntiAsync();
+            return View(superDieciPunti);
+        }
+
+        public async Task<IActionResult> VerbaliCostosi() {
+            var verbaliCostosi = await _adminService.GetVerbaliCostosiAsync();
+            return View(verbaliCostosi);
         }
     }
 }
